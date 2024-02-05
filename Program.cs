@@ -8,6 +8,7 @@ internal class Program
         Vetor vet = new Vetor();
         List<string> ListaAlugueis = await vet.AdicionaVetor()
                                                .Getlist();
+        ListaAlugueis.Sort();
         foreach (string Lista in ListaAlugueis)
         {
             Console.WriteLine(Lista);
