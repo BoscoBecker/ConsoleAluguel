@@ -1,10 +1,5 @@
 ﻿using ConsoleAluguel.Intefaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ConsoleAluguel.Entidades
 {
@@ -13,14 +8,17 @@ namespace ConsoleAluguel.Entidades
         Pensionato pensionato;
         List<string> RoomsBusy;
 
+        public object INumerable { get; private set; }
+
         public void CreateList()
         {
+   
             RoomsBusy = new List<string>();
         }
 
         public async Task<List<string>> Getlist()
         {
-            return RoomsBusy; 
+            return RoomsBusy;
         }
 
         public Vetor AdicionaVetor()
@@ -42,8 +40,10 @@ namespace ConsoleAluguel.Entidades
                 room = int.Parse(Console.ReadLine());
                 Console.WriteLine("");
 
-                Vect[room] = pensionato = new Pensionato { Name = name, Email = email, Room = room };
-                RoomsBusy.Add("Nome: " + name + " Email: " + email + " Room: " + room);
+                if (Vect[room]!=null){
+                    Vect[room] = pensionato = new Pensionato { Name = name, Email = email, Room = room };
+                    RoomsBusy.Add("Nome: " + name + " Email: " + email + " Room: " + room);
+                } else Console.WriteLine("Esse quarto já está reservado. ");
 
                 Console.WriteLine("Deseja reservar outro quarto ? S/N ");
                 string Resultado = Console.ReadLine();
