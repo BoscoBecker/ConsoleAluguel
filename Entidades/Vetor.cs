@@ -40,7 +40,7 @@ namespace ConsoleAluguel.Entidades
                 room = int.Parse(Console.ReadLine());
                 Console.WriteLine("");
 
-                if (Vect[room]!=null){
+                if (Vect[room] == null){
                     Vect[room] = pensionato = new Pensionato { Name = name, Email = email, Room = room };
                     RoomsBusy.Add("Nome: " + name + " Email: " + email + " Room: " + room);
                 } else Console.WriteLine("Esse quarto já está reservado. ");

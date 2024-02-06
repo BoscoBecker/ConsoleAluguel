@@ -9,7 +9,9 @@ internal class Program
         Vetor vet = new Vetor();
         List<string> ListaAlugueis = await vet.AdicionaVetor()
                                                .Getlist();
-        foreach (string Lista in ListaAlugueis)
+
+        var OrderByAsc = ListaAlugueis.OrderBy(e => e).ToList<string>();
+        foreach (string Lista in OrderByAsc)
         {
             Console.WriteLine(Lista);
         }
